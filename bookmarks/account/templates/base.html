@@ -25,6 +25,8 @@
     </ul>
     {% endif %}
 
+
+
     <span class="user">
  {% if request.user.is_authenticated %}
  Hello {{ request.user.first_name|default:request.user.username }},
@@ -34,7 +36,7 @@
  {% endif %}
  </span>
 
-
+</div>
 
 
 <!--    {% if request.user.is_authenticated %}-->
@@ -68,7 +70,16 @@
 <!--        {% endif %}-->
 <!--    </span>-->
 
-</div>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li class="{{ message.tags }}">
+        {{ message|safe }}<a href="#" class="close">x</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}
+
 <div id="content">
     {% block content %} {% endblock %}
 </div>
