@@ -5,5 +5,8 @@ from . import views
 app_name = 'images'
 
 urlpatterns = [
-    path('create/', views.image_create, name='create')
+    path('create/', views.image_create, name='create'),
+    path('detail/<int:id>/<slug:slag>/', views.image_detail,
+         name='detail'),
+
 ]
